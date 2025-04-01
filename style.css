@@ -1,0 +1,289 @@
+/* Universal resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #2a2a2a; /* Dark background */
+    color: #ffffff; /* White text for contrast */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+/* Main container styles */
+.container {
+    background-color: #333333; /* Dark gray background for the container */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* Heading */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #e7a00d; /* Golden yellow for a bright look */
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* User input container */
+.user-container {
+    margin-bottom: 2rem;
+}
+
+.user-input-container {
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Input styling */
+#user-input {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 70%;
+    background-color: #4e4e4e;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+#user-input:focus {
+    outline: none;
+    border: 1px solid #299f5d;
+    background-color: #333;
+}
+
+/* Search button styling */
+#search-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #299f5d;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#search-btn:hover {
+    background-color: #217a46;
+}
+
+#search-btn:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Loading message */
+.loading-message {
+    font-size: 1.2rem;
+    color: #fff;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+/* Stats container and progress circles */
+.stats-container {
+    display: none;
+    margin-top: 2rem;
+}
+
+.progress {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin-bottom: 2rem;
+}
+
+.progress-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Circular progress design */
+.circle {
+    background: conic-gradient(
+        #299f5d var(--progress-degree, 0%),
+        #283a2e 0%
+    );
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #299f5d;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 700;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.circle p {
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+/* Stats cards */
+.stats-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: #e6942c;
+    padding: 20px;
+    border-radius: 12px;
+    width: 45%;
+    max-width: 290px;
+    min-height: 120px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.card p {
+    font-size: 1.1rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* Small screen responsive styles */
+@media (max-width: 600px) {
+    .user-input-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #user-input {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    #search-btn {
+        width: 80%;
+    }
+
+    .progress {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Fix to center the stats cards on small screens */
+    .stats-cards {
+        flex-direction: column;
+        gap: 15px;
+        justify-content: center;  /* Center cards vertically */
+        align-items: center;      /* Center cards horizontally */
+    }
+}
+
+/* For even smaller devices (mobile screens from 320px upwards) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem; /* Reduce heading size */
+    }
+
+    #user-input {
+        width: 90%;
+    }
+
+    #search-btn {
+        width: 90%;
+    }
+
+    .circle {
+        width: 100px;
+        height: 100px;
+        font-size: 14px;
+    }
+
+    .stats-cards {
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .card {
+        width: 90%;
+        min-height: 100px;
+    }
+
+    .progress {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+}
+
+/* For very small devices (mobile screens from 320px) */
+@media (max-width: 320px) {
+    h1 {
+        font-size: 1.6rem; /* Even smaller heading for very small devices */
+    }
+
+    #user-input {
+        width: 80%;
+    }
+
+    #search-btn {
+        width: 80%;
+    }
+
+    .circle {
+        width: 90px;
+        height: 90px;
+        font-size: 12px;
+    }
+
+    .card {
+        width: 100%;
+        min-height: 80px;
+    }
+
+    .progress {
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+    }
+
+    .stats-cards {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .loading-message {
+        font-size: 1rem; /* Adjust loading text size */
+    }
+}
